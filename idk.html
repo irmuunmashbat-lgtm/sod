@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine</title>
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #ff9ecf, #ff4d6d);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    .container {
+        background: rgba(255,255,255,0.15);
+        padding: 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 15px 30px;
+        margin: 10px;
+        font-size: 18px;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    #yesBtn {
+        background: #ffffff;
+        color: #ff4d6d;
+    }
+    #noBtn {
+        background: #ff1e56;
+        color: white;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1 id="question">Nmngo,will you be my Valentine?</h1>
+    <button id="yesBtn">Yes 💕</button>
+    <button id="noBtn">No 🥀</button>
+</div>
+
+<script>
+let noClicks = 0;
+const question = document.getElementById("question");
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("click", function() {
+    noClicks++;
+
+    if (noClicks === 1) {
+        question.textContent = "Are you sure?";
+        noBtn.style.transform = "scale(0.8)";
+    } 
+    else if (noClicks === 2) {
+        question.textContent = "Really sure? ";
+        noBtn.style.transform = "scale(0.6)";
+    } 
+    else if (noClicks === 3) {
+        question.textContent = "Last chance... are you absolutely sure? 😭";
+        noBtn.style.transform = "scale(0.4)";
+    } 
+    else {
+        question.textContent = "ok";
+        noBtn.style.display = "none";
+        document.getElementById("yesBtn").style.display = "none";
+    }
+});
+
+document.getElementById("yesBtn").addEventListener("click", function() {
+    question.textContent = "YEYYY!!!(go tell that mf he dont know how to check ur answer)";
+    noBtn.style.display = "none";
+    this.style.display = "none";
+}); 
+</script>
+
+</body>
+</html>
